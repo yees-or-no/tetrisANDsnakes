@@ -1,6 +1,6 @@
 # Konsol Game Mini Arduino Nano (Tetris & Snake)
 
-Konsol game retro berbasis **Arduino Nano** dengan layar **LED matrix 8×32 (4 modul MAX7219)**. Dikendalikan memakai **Funduino Joystick Shield** (joystick analog dan tombol A–F), dilengkapi **active buzzer** untuk efek suara dan musik latar.
+Konsol game retro berbasis **Arduino Nano** dengan layar **LED matrix 8×32 (4in1 modul MAX7219)**. Dikendalikan memakai **Funduino Joystick Shield** (joystick analog dan tombol A–F), dilengkapi **active buzzer** untuk efek suara dan musik latar.
 
 ## Fitur
 
@@ -18,7 +18,7 @@ Konsol game retro berbasis **Arduino Nano** dengan layar **LED matrix 8×32 (4 m
 |----|----------|--------|--------|
 | 1 | Arduino Nano (ATmega328P) | 1 | Mikrokontroler utama |
 | 2 | Funduino Joystick Shield | 1 | Joystick analog, tombol joystick (K), dan tombol A–F |
-| 3 | Modul LED Matrix 8×8 MAX7219 | 4 | Layar 8×32 (dirangkai *cascade*) |
+| 3 | Modul LED Matrix 8×8 MAX7219 | 4in1 | Layar 8×32 (dirangkai *cascade*) |
 | 4 | Active buzzer | 1 | Efek suara dan musik |
 | 5 | Kabel jumper | Secukupnya | Penghubung antarkomponen |
 | 6 | Catu daya 5V / kabel USB | 1 | Sumber daya |
@@ -28,7 +28,7 @@ Konsol game retro berbasis **Arduino Nano** dengan layar **LED matrix 8×32 (4 m
 ## Perangkat Lunak
 
 - [Arduino IDE](https://www.arduino.cc/en/software)
-- Library **LedControl** (instal lewat *Library Manager*)
+- Library **LedControl**
 
 ## Pemetaan Pin
 
@@ -57,16 +57,6 @@ Modul MAX7219 juga memerlukan sambungan **VCC (5V)** dan **GND**.
 | Tombol E | D6 | Ganti game (Tetris ↔ Snake) |
 | Tombol F | D7 | Suara on/off |
 
-Semua tombol memakai `INPUT_PULLUP` (aktif LOW), jadi tidak diperlukan resistor tambahan.
-
-### Catatan buzzer
-
-Kode ini dibuat untuk **active buzzer** dengan logika **aktif LOW** (pin HIGH = mati, LOW = bunyi). Karena itu, nada pada melodi tidak diatur frekuensinya dan hanya menghasilkan ritme beep.
-Jika memakai **passive buzzer**, ubah konstanta berikut agar `tone()` dipakai:
-
-```cpp
-const bool PITCH_GATING = true;
-```
 
 ## Cara Menjalankan
 
@@ -124,6 +114,4 @@ tetrisANDsnakes/
 ├── tetrisANDsnakes.ino
 └── README.md
 ```
-
-## Lisensi
 
